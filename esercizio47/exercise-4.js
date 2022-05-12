@@ -5,6 +5,6 @@ const person = {
   age: 25
 };
 
-for (let [,item] of Object.entries(person)) {
-  console.log(item);
+for (let [item1,item2] of Object.entries(person)) {
+  console.log(`${item1}: ${item2}`);
 }
