@@ -22,9 +22,10 @@ const persons = [
 function fetchPersonById(id) {
   // code here
   return new Promise((resolve)=>{
-    resolve(id);
-  })
-    
+    setTimeout (() => {
+      resolve(id);
+    }, 1000);
+  });   
 }
 // code here
 let promise = fetchPersonById(1);
