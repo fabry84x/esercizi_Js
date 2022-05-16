@@ -21,12 +21,8 @@ const persons = [
 
 function fetchPersonById(id) {
   // code here
-  return new Promise((resolve,reject)=>{
-    if(id>0 && id<4){
-      resolve(id);
-    } else {
-    reject(new Error("id errato)"));
-    }
+  return new Promise((resolve)=>{
+    resolve(id);
   })
     
 }
