@@ -1,0 +1,19 @@
+<html>
+  <body>
+    <div id="container">
+      <ul class="todo-list"></ul>
+    </div>
+  </body>
+</html>
+
+<script>
+  // code here
+  fetch('https://jsonplaceholder.typicode.com/todos')
+  .then(response => response.json())
+  .then(data => {
+      for(let i in data){
+        let item = document.createElement("li");
+        document.querySelector('.todo-list').appendChild(item).textContent=data[i].title;
+    }
+  }) 
+</script>
