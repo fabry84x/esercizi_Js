@@ -1,0 +1,18 @@
+<html>
+  <body>
+    <div id="container" style="display: flex; align-items: center;"></div>
+  </body>
+</html>
+
+<script>
+  // code here
+  fetch('https://jsonplaceholder.typicode.com/todos/4')
+  .then(response => response.json())
+  .then(data => {
+    let heading2 = document.createElement("h2");
+    let input_el = document.createElement("input");
+    input_el.setAttribute("type", "checkbox");
+    document.querySelector('#container').appendChild(heading2).innerHTML=data.title;
+    document.querySelector('#container').appendChild(input_el).checked=data.completed;
+  }) 
+</script>
