@@ -21,13 +21,9 @@
 
 <script>
   // code here
-
-document.querySelectorAll('label').forEach(function(labeltext){
- console.log(labeltext.textContent);
-});
-document.querySelectorAll('.form-input').forEach(function(inputtext){
- console.log(inputtext.value);
-});
-
-  
+let labelText = document.querySelectorAll('label');
+let inputValue = document.querySelectorAll('input');
+for(let n=0;n<labelText.length;n++){
+  console.log(labelText[n].textContent,inputValue[n].value);
+} 
 </script>
