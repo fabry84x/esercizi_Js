@@ -1,0 +1,56 @@
+<html>
+
+<body>
+  <div id="container">
+    <h2>Person's Form</h2>
+    <form id="person-form">
+      <button type="submit" onclick="submitPersonForm(event)">Submit</button>
+    </form>
+  </div>
+</body>
+
+</html>
+
+<script>
+  // Code here
+  window.onload = function initForm() {
+
+    let input1 = document.createElement("input");
+    input1.type = "text";
+    input1.id = "firstName";
+    input1.placeholder = "firstName";
+
+    let input2 = document.createElement("input");
+    input2.type = "text";
+    input2.id = "lastName";
+    input2.placeholder = "lastName";
+
+    let input3 = document.createElement("input");
+    input3.type = "text";
+    input3.id = "age";
+    input3.placeholder = "age";
+
+    document.getElementById('person-form').appendChild(input1);
+    document.getElementById('person-form').appendChild(input2);
+    document.getElementById('person-form').appendChild(input3);
+  }
+  
+  function submitPersonForm(event) {
+    event.preventDefault();
+
+    class Person {
+      constructor(firstName, lastName, age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+      }
+    }
+
+    let firstName = document.getElementById('firstName').value;
+    let lastName = document.getElementById('lastName').value;
+    let age = document.getElementById('age').value;
+
+    let person = new Person(firstName, lastName, age);
+    console.log(person);
+  }
+</script>
