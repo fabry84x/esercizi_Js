@@ -34,11 +34,15 @@ function fetchPersonById(id) {
 }
 
 (async () => {
+  try{
   const personJson = await fetchPersonById(4);
   const person = await JSON.parse(personJson);
   console.log(person);
-})
+  } catch(err){
+    console.log("Errore ->",err);
+  }
+})();
 
-().catch((err) => {
+/* ().catch((err) => {
   console.log("Errore ->",err);
-});
+}); */
