@@ -37,26 +37,31 @@ const jobs = [
 // core here
 
 function fetchPersonById(id) {
-  return new Promise ((resolve)=>{
-    setTimeout (()=>{
-      resolve(persons.find(item => item.id === id));
+  return new Promise((resolve,reject) => {
+    setTimeout(() => { 
+      const person=persons.find(item => item.id === id);
+      if(person) {
+        resolve(person);
+      } else {
+      reject(new Error("non esiste una persona con questo id"));
+        }
     }, 1000);
   });
 }
 
 function fetchJobById(id) {
-  return new Promise ((resolve)=>{
-    setTimeout (()=>{
-      resolve(jobs.find(item => item.id === id));
+  return new Promise((resolve,reject) => {
+    setTimeout(() => { 
+      const job=jobs.find(item => item.id === id);
+      if(job) {
+        resolve(job);
+      } else {
+      reject(new Error("non esiste un job con questo id"));
+        }
     }, 1000);
   });
 }
 
-fetchPersonById(1)
-.then((id)=>{
-  console.log(id);
-  return fetchJobById(1);
-})
-.then((id)=>{
-  console.log(id.jobTitle);
-})
+Promise.all([fetchPersonById(3),fetchJobById(3)])
+.then((ids)=>console.log(ids))
+.catch((err)=>console.log(err))
