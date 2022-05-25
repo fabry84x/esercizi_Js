@@ -22,8 +22,9 @@ const persons = [
 function fetchPersonById(id) {
   return new Promise((resolve,reject) => {
     setTimeout(() => { 
-      if(persons.id) {
-        resolve(persons.find(item => item.id === id));
+      const person=persons.find(item => item.id === id);
+      if(person) {
+        resolve(person);
       } else {
       reject(new Error("non esiste una persona con questo id"));
         }
