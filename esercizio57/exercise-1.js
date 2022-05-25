@@ -21,23 +21,23 @@ const persons = [
 
 function fetchPersonById(id) {
   // code here
-  return new Promise((resolve)=>{
-    setTimeout (() => {
-      resolve(id);
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const person = persons.find(item => item.id === id);
+      if (person) {
+        resolve(person);
+      }
+      else {
+        reject(new Error("questo id non esiste"));
+      }
     }, 1000);
-  });   
+  });
 }
 // code here
 let promise = fetchPersonById(1);
 promise
-.then((id) => {
-  if(id===1){
-    console.log(persons[0]);
-  }
-  if(id===2){
-    console.log(persons[1]);
-  }
-  if(id===3){
-    console.log(persons[2]);
-  }
-})
+  .then((id) => {
+    console.log(id);
+  })
+  .catch((e) => {console.log(e);
+  })
