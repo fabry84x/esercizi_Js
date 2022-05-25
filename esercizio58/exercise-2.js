@@ -22,13 +22,19 @@ const persons = [
 function fetchPersonById(id) {
   return new Promise((resolve,reject) => {
     setTimeout(() => { 
-      if(id>0 && id<4) {
-        resolve(persons.find(item => item.id === id))
+      if(persons.id) {
+        resolve(persons.find(item => item.id === id));
       } else {
-      reject(new Error("id errato)"));
+      reject(new Error("non esiste una persona con questo id"));
         }
     }, 1000);
   });
 }
 
-fetchPersonById(4).then((person) => console.log(person));
+fetchPersonById(4)
+.then((person) => {
+  console.log(person);
+})
+.catch((err)=>{
+  console.log(err);
+})
