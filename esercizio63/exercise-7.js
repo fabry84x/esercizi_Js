@@ -43,6 +43,4 @@ function fetchPersonById(id) {
   }
 })();
 
-/* ().catch((err) => {
-  console.log("Errore ->",err);
-}); */
+
